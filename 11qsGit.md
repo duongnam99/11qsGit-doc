@@ -51,8 +51,7 @@ Bây giờ B là HEAD. Bởi vì bạn đã sử dụng --hard, các file của 
 
   * undo nhưng vẫn giữ thay đổi:
 
-Now we tell Git to move the HEAD pointer back one commit (B) and leave the
-files as they are and `git status` shows the changes you had checked into C.
+Bây giờ chúng ta nói cho Git để di chuyển con trỏ HEAD quay trở lại một commit B và để các file như chính chúng và git status hiển thị các thay đổi đã được kiểm tra trong C
 
   * To undo your commit but leave your files and your index
 
@@ -139,7 +138,7 @@ atlassian.com/dam/jcr:61ccc620-5249-4338-be66-94d563f2843c/05%2520%282%29.svg%
 > Topic: **Git**  
 Difficulty: ⭐⭐⭐
 
-Câu lệnh `git stash` lấy tất cả những thay đổi uncommited của bạn (bao gồm cả staged và unstaged) , lưu chúng để sử dụng sau này , và sau đó phục hồi chúng từ bản sao làm việc của bạn.
+Câu lệnh `git stash` lấy tất cả những thay đổi chưa được commit của bạn (bao gồm cả staged và unstaged) , lưu chúng để sử dụng sau này , và sau đó phục hồi chúng từ bản sao làm việc của bạn.
 
 Consider:
 
