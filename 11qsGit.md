@@ -1,17 +1,5 @@
 
-# 11 Painful Git Interview Questions You Will Cry On
-
-[![11 Painful Git Interview Questions and Answers You Will Cry
-On](https://res.cloudinary.com/practicaldev/image/fetch/s--ZdnrNCoZ--/c_limit%
-2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://images.pexels.com/photos/92
-9382/pexels-photo-929382.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26h%3D350)](ht
-tps://res.cloudinary.com/practicaldev/image/fetch/s--ZdnrNCoZ--/c_limit%2Cf_au
-to%2Cfl_progressive%2Cq_auto%2Cw_880/https://images.pexels.com/photos/929382
-/pexels-photo-929382.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26h%3D350)  
-According to the latest Stack Overflow developer survey, more than 70 percent
-of developers use Git, making it the most-used VCS in the world. Git is
-commonly used for both open source and commercial software development, with
-significant benefits for individuals, teams and businesses.
+# 11 câu hỏi đau đớn về git sẽ khiến bạn phát khóc
 
 ### Q1: Git fork là gì? Sự khác biệt fork, branch và clone là gì?
 
@@ -233,18 +221,18 @@ sau `git merge master`:
 
 sau `git rebase master`:
 
-Với rebase thì bạn đang sử dụng một nhánh làm cơ sở mới cho công việc của bạn.  
+Với rebase thì bạn đang sử dụng một nhánh làm base mới cho công việc của bạn.  
 
 **Khi nào sử dụng:**  
 
-  1. Nếu bạn chưa chắc chắn, sử dụng merge.  
+  1. Nếu bạn bạn còn chưa chắc chắn, sử dụng merge.  
   2. Lựa chọn rebase hay merge tùy thuộc vào việc bạn muốn lịch sử trông như thế nào.  
 
 **Các yếu tố cần xem xét:**
 
-  1. **Nhánh bạn có đang nhận được các thay đổi từ việc chia sẻ với các developer  khác bên ngoài nhóm của bạn (ví dụ: opensource, public) không?** Nếu có, đừng rebase. Rebase phá hủy nhánh và các developer đó sẽ có các repository bị hỏng / không nhất quán trừ khi họ sử dụng `git pull --rebase`.  
-  2. **Team development của bạn có kỹ năng nào?** Rebase là một hành động phá hoại. Điều đó có nghĩa, nếu bạn không áp dụng nó một cách chính xác, bạn có thể mất các công việc đã commit và hoặc phá vỡ sự thống nhất giữa các repository của các developer.  
-  3. **Bản thân nhánh đó có đại diện cho một thông tin hữu ích không?** Một số nhóm sử dụng mô hình `branch-per-feature`  nơi mà mỗi nhánh thể hiện một tính năng (hoặc bugfix hoặc tính năng con, ...). Trong mô hình này nhánh giúp xác định tập các commit liên quan. Trong trường hợp mô hình `branch-per-developer` chính nhánh không truyền tải bất cứ thông tin bổ sung nào (commit đã lưu tác giả). Sẽ không có hại gì khi rebase  
+  1. **Nhánh của bạn có đang nhận được các thay đổi từ việc chia sẻ với các developer khác bên ngoài nhóm của bạn (ví dụ: opensource, public) không?** Nếu có, đừng rebase. Rebase phá hủy nhánh và các developer đó sẽ có các repository bị phá hỏng / không nhất quán trừ khi họ sử dụng `git pull --rebase`.  
+  2. **Đội ngũ phát triển của bạn có kỹ năng như thế nào?** Rebase là một hành động mang tính phá hủy. Điều đó có nghĩa, nếu bạn không áp dụng nó một cách chính xác, bạn có thể mất các công việc đã commit và hoặc phá vỡ sự thống nhất giữa các repository của các developer.  
+  3. **Bản thân nhánh đó có thể hiện thông tin hữu ích không?** Một số team sử dụng mô hình `branch-per-feature`  nơi mà mỗi nhánh thể hiện một tính năng (hoặc bugfix hoặc tính năng con, ...). Trong mô hình này nhánh giúp xác định tập các commit liên quan. Trong trường hợp mô hình `branch-per-developer` chính nhánh không truyền tải bất cứ thông tin bổ sung nào (commit đã lưu tác giả). Sẽ không có hại gì khi rebase  
   4. **Bạn có thể muốn revert một merge vì bất kỳ lý do nào?**  Revert (giống như undo) một rebase là một điều khá khó khăn và không thể (nếu rebase có xung đột) so với revert một merge. Nếu bạn nghĩ rằng có thể có một cơ hội bạn sẽ muốn revert thì sử dụng merge  
 
 **Source:** [stackoverflow.com](https://stackoverflow.com/questions/804115/when-do-you-use-git-rebase-instead-of-git-merge)
