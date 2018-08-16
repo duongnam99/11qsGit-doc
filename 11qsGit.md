@@ -6,7 +6,7 @@
 > Topic: **Git**  
 Difficulty: ⭐⭐
 
-  * Một **fork**  là một bản sao remote, phía server của một repository, tách bạch với bản gốc. Fork không thực sự là một khái niệm của  Git, nó giống một ý tưởng chính trị / xã hội hơn.
+  * Một **fork**  là một bản sao remote, của một repository ở phía server, tách bạch với bản gốc. Fork không thực sự là một khái niệm của  Git, nó giống một khái niệm trong chính trị / xã hội hơn.
   * Một **clone** không phải là một fork; một clone là một bản sao dưới local của một remote repository. Khi bạn clone, thực ra là bạn đang sao chép toàn bộ source repository, bao gồm tất cả lịch sử và các nhánh.
   * Một **branch** là một cơ chế để xử lý các thay đổi trong một repo duy nhất để cuối cùng merge chúng với phần còn lại của code . Một branch là một phần của một repository. Về mặt khái niệm, nó đại diện cho một luồng phát triển.
 
@@ -29,8 +29,7 @@ Difficulty: ⭐⭐
 > Topic: **Git**  
 Difficulty: ⭐⭐
 
-Hiểu ngắn gọn, `git pull` thực hiện một `git fetch` theo sau là một `git
-merge`.  
+Hiểu ngắn gọn, `git pull` thực hiện một `git fetch` và sau đó là một `git merge`.  
 
   * Khi bạn sử dụng `pull`, Git sẽ cố gắng tự động thực hiện công việc cho bạn. **Tùy vào hoàn cảnh**, Git sẽ merge mọi commit được pull vào nhánh bạn đang làm việc. `pull` **tự động gộp các commit mà bạn bạn không cần xem chúng trước**. Nếu bạn không quản lý chặt chẽ các nhánh của mình, bạn có thể thường xuyên gặp phải xung đột.    
 
@@ -45,16 +44,16 @@ Difficulty: ⭐⭐⭐
 
 Giả sử bạn có điều này, trong đó C là con trỏ HEAD của bạn và (F) là trạng thái file của bạn.
 
-  * Để nuke thay đổi trong commit: 
+  * Để huỷ các thay đổi trong commit: 
 
 Bây giờ B là HEAD. Bởi vì bạn đã sử dụng --hard, các file của bạn được reset về trạng thái ở commit B  
 
   * undo nhưng vẫn giữ thay đổi:
 
-Now we tell Git to move the HEAD pointer back one commit (B) and leave the
-files as they are and `git status` shows the changes you had checked into C.
+Now we tell Git to move the HEAD pointer back one commit (B) and leave the files as they are and `git status` shows the changes you had checked into C.
 
-  * To undo your commit but leave your files and your index
+  * Để quay lại một commit của bạn nhưng để lại các file và các index của bạn:
+
 
 Khi bạn thực hiện `git status`,bạn sẽ thấy các file cùng với index như trước đó.
 
@@ -68,7 +67,7 @@ Difficulty: ⭐⭐⭐
 Câu lệnh git _cherry-pick_ thường được dùng để chỉ các commit cụ thể từ một branch trong một repository trên một branch khác. Thường được sử dụng để chuyển tiếp hoặc back-port các commit từ nhánh bảo trì đến nhánh phát triển.  
 
 
-Điều này tương phản với các cách khác như merge và rebase thường thì chấp nhận nhiều commit trên một nhánh khác.
+Điều này ngược lại với các cách khác như merge và rebase là chấp nhận nhiều commit trên một nhánh khác.
 
 Ví dụ:
 
@@ -84,8 +83,7 @@ Ví dụ:
 > Topic: **Git**  
 Difficulty: ⭐⭐⭐
 
-**Forking Workflow** về cơ bản sẽ khác với các luồng làm việc Git khác. Thay vì sử dụng một repository duy nhất phia server để hoạt động như một
-"trung tâm" codebase, nó cung cấp cho mỗi developer một repository phía server riêng của họ. "Forking Workflow" thường thấy nhất trong các dự án open soure công khai.  
+**Forking Workflow** về cơ bản sẽ khác với các luồng làm việc Git khác. Thay vì sử dụng một repository duy nhất phia server để hoạt động như một "trung tâm" codebase, nó cung cấp cho mỗi developer một repository phía server riêng của họ. "Forking Workflow" thường thấy nhất trong các dự án open soure công khai.  
 
 Ưu điểm chính của Forking Workflow là các đóng góp có thể được tích hợp mà không cần mọi người push vào một repository trung tâm duy nhất giúp lịch sử commit của dự án được sạch sẽ. Các developer sẽ push lên các repository phía server của họ, và chỉ người bảo trì dự án có thể push lên repository chính.  
 
@@ -112,14 +110,14 @@ Difficulty: ⭐⭐⭐
 > Topic: **Git**  
 Difficulty: ⭐⭐⭐
 
-Gitflow workflow (luồng làm việc) sử dụng hai nhánh _long running_ để lưu lịch sử của project là `master` và `develop`:  
+Gitflow workflow (luồng làm việc) sử dụng hai nhánh _long running_ (song song kéo dài) để lưu lịch sử của project là `master` và `develop`:  
 
   * **Master** \- luôn sẵn sàng để được phát hành trên LIVE, với mọi thứ được kiểm tra và  phê duyệt đầy đủ (sẵn sàng cho production).  
 
     * **Hotfix** \-  nhánh bảo trì hay 'hotfix' được sử dụng để nhanh chóng phát hành trong bản vá. Nhánh Hotfix rất giống với nhánh release và nhánh feature ngoại trừ việc chúng dựa trên `master` thay vì `develop`.
   
 
-  * **Develop** \- là nhánh mà tất cả các nhánh tính năng merge vào và nơi tất cả các test được thực hiện. Chỉ khi mọi thứ được kiểm tra kỹ lưỡng và sửa thì nó mới có thể được merge với `master` 
+  * **Develop** \- là nhánh mà tất cả các nhánh tính năng merge vào và nơi tất cả các test được thực hiện. Chỉ khi mọi thứ được kiểm tra kỹ lưỡng và sửa thì nó mới có thể được merge vào `master` 
 
     * **Feature** \- mỗi tính năng mới nên được để ở trong nhánh riêng của nó, nó có thể được push lên nhánh `develop` giống nhánh cha của chúng.  
 
@@ -159,8 +157,7 @@ Consider:
     nothing to commit, working tree clean
     
 
-Chúng ta có thể sử dụng stash khi chúng ta phát hiện ra chúng ta đã quên điều gì đó trong
-commit cuối cùng và đã bắt đầu làm việc tiếp theo trên nhánh đó:  
+Chúng ta có thể sử dụng stash khi chúng ta phát hiện ra chúng ta đã quên điều gì đó trong commit cuối cùng và đã bắt đầu làm việc tiếp theo trên nhánh đó:  
 
     
     
@@ -175,7 +172,6 @@ commit cuối cùng và đã bắt đầu làm việc tiếp theo trên nhánh �
 **Source:** [atlassian.com](https://www.atlassian.com/git/tutorials/saving-changes/git-stash)
 
 ### Q10: Làm thế nào để xóa một file khỏi git mà không cần xóa nó trong hệ thống file của bạn?
-system?
 
 > Topic: **Git**  
 Difficulty: ⭐⭐⭐⭐
@@ -225,7 +221,7 @@ Với rebase thì bạn đang sử dụng một nhánh làm base mới cho công
 
 **Khi nào sử dụng:**  
 
-  1. Nếu bạn bạn còn chưa chắc chắn, sử dụng merge.  
+  1. Nếu bạn bạn còn chưa chắc chắn, hãy sử dụng merge.  
   2. Lựa chọn rebase hay merge tùy thuộc vào việc bạn muốn lịch sử trông như thế nào.  
 
 **Các yếu tố cần xem xét:**
